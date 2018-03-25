@@ -31,7 +31,7 @@ router.post('/contatos', (req, res) => {
    
     for (let i =0; i<contatos_rec.contatos.length; i++)
     {
-        contatos_rec.contatos[i].idcontato = contatos_env.contatos[i].idcontato + "" + contatos_env.contatos[i].idcontato; 
+        contatos_rec.contatos[i].nome = contatos_env.contatos[i].nome + contatos_env.contatos[i].idcontato; 
     } 
 
     res.status(200).send(contatos_rec)
