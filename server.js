@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 
 router.post('/contatos', (req, res) => {
     
-    let contatos_env = JSON.parse(req.query.json);
+    let contatos_env = JSON.parse(req.body.json);
     let contatos_rec = {};
     contatos_rec.contatos = contatos_env.contatos;
    
