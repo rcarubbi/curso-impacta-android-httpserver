@@ -23,19 +23,15 @@ app.use(function (req, res, next) {
     next();
 });
 
-router.get('/contatos', (req, res) => {
-    res.status(200).send({
-        contatos: [
-            {
-                nome: "raphael carubbi neto",
-                idade: 36
-            },
-            {
-                nome: "yendis gomes",
-                idade: 26
-            },
-        ]
-    })
+router.post('/contatos', (req, res) => {
+
+    let contatos_env = req.query.json;
+    for (let i =0; i<contatos_env.contatos.length; i++)
+    {
+        contatos_env.contatos.idcontato = contatos_env.contatos.idcontato + "" + contatos_env.contatos.idcontato; 
+    } 
+
+    res.status(200).send({contatos_env})
 });
 app.use("/", router);
  
