@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 
 router.post('/contatos', (req, res) => {
 
-    let contatos_env = req.query.json || req.body.json;
+    let contatos_env = JSON.parse(req.query.json || req.body.json);
     for (let i =0; i<contatos_env.contatos.length; i++)
     {
         contatos_env.contatos.idcontato = contatos_env.contatos.idcontato + "" + contatos_env.contatos.idcontato; 
