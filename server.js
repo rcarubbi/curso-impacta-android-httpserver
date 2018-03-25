@@ -34,7 +34,7 @@ router.post('/contatos', (req, res) => {
         contatos_rec.contatos[i].idcontato = contatos_env.contatos[i].idcontato + "" + contatos_env.contatos[i].idcontato; 
     } 
 
-    res.status(200).send({contatos_rec})
+    res.status(200).send(contatos_rec)
 });
 app.use("/", router);
  
