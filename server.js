@@ -24,14 +24,17 @@ app.use(function (req, res, next) {
 });
 
 router.post('/contatos', (req, res) => {
-
-    let contatos_env = JSON.parse(req.query.json || req.body.json);
-    for (let i =0; i<contatos_env.contatos.length; i++)
+    
+    let contatos_env = JSON.parse(req.query.json);
+    let contatos_rec = {};
+    contatos_rec.contatos = contatos_env.contatos;
+   
+    for (let i =0; i<contatos_rec.contatos.length; i++)
     {
-        contatos_env.contatos.idcontato = contatos_env.contatos.idcontato + "" + contatos_env.contatos.idcontato; 
+        contatos_rec.contatos[i].idcontato = contatos_env.contatos[i].idcontato + "" + contatos_env.contatos[i].idcontato; 
     } 
 
-    res.status(200).send({contatos_env})
+    res.status(200).send({contatos_rec})
 });
 app.use("/", router);
  
